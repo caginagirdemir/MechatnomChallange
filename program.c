@@ -273,7 +273,7 @@ void task1()
     {
         usleep(*on_time);
         *gpio_port1 |= P1P8_ON;
-        usleep(*on_time);
+        usleep(*off_time);
         *gpio_port1 |= P1P8_OFF;
     }
 }
