@@ -243,7 +243,7 @@ void task2()
 
     while(c != '\t') // tab non-printable delimeter character in this program
     {
-        bufRead(&c, 1);
+        ret = bufRead(&c, 1);
         if(ret)
             buf[++i] = c;
     }
