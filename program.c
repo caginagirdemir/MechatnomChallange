@@ -241,7 +241,7 @@ void task2()
     unsigned char c = '\0';
     char buf[15];
 
-    while(c != '\t')
+    while(c != '\t') // tab non-printable delimeter character in this program
     {
         bufRead(&c, 1);
         if(ret)
