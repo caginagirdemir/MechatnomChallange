@@ -236,28 +236,31 @@ int ft_strlen(char *str)
 
 void task2()
 {
-    int ret = 1;
-    int i = -1;
-    unsigned char c = '\0';
-    char buf[15];
-
-    while(c != '\t') // tab non-printable delimeter character in this program
+    while(1)
     {
-        ret = bufRead(&c, 1);
-        if(ret)
-            buf[++i] = c;
+        int ret = 1;
+        int i = -1;
+        unsigned char c = '\0';
+        char buf[15];
+
+        while(c != '\t') // tab non-printable delimeter character in this program
+        {
+            ret = bufRead(&c, 1);
+            if(ret)
+                buf[++i] = c;
+        }
+        buf[++i] = '\0';
+        if(strcmp(buf, "stop"))
+            echo_flag = 0;
+        else if(strcmp(buf, "start"))
+            echo_flag = 1;
+        else if(strncmp(buf,"ledon", 5))
+            *on_time = atoi(strchr(buf, '=')+1) * 1000;
+        else if(strncmp(buf,"ledoff", 6))
+            *off_time = atoi(strchr(buf, '=')+1) * 1000;
+        else if(echo_flag)
+            uart_send((unsigned char *)buf, ft_strlen(buf));
     }
-    buf[++i] = '\0';
-    if(strcmp(buf, "stop"))
-        echo_flag = 0;
-    else if(strcmp(buf, "start"))
-        echo_flag = 1;
-    else if(strncmp(buf,"ledon", 5))
-        *on_time = atoi(strchr(buf, '=')+1) * 1000;
-    else if(strncmp(buf,"ledoff", 6))
-        *off_time = atoi(strchr(buf, '=')+1) * 1000;
-    else if(echo_flag)
-        uart_send((unsigned char *)buf, ft_strlen(buf));
 }
 
 void task1()
