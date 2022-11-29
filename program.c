@@ -243,7 +243,7 @@ void task2() //infinity loop
 
         while(c != '\t') // tab non-printable delimeter character in this program
         {
-            ret = bufRead(&c, 1);
+            ret = bufRead(&c, RX_FIFO);
             if(ret)
                 buf[++i] = c;
         }
