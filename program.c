@@ -234,10 +234,8 @@ int ft_strlen(char *str)
     return i;
 }
 
-void task2()
+void task2() //infinity loop
 {
-    while(1)
-    {
         int ret = 1;
         int i = -1;
         unsigned char c = '\0';
@@ -260,10 +258,9 @@ void task2()
             *off_time = atoi(strchr(buf, '=')+1) * 1000;
         else if(echo_flag)
             uart_send((unsigned char *)buf, ft_strlen(buf));
-    }
 }
 
-void task1()
+void task1() //infinity loop
 {
     if(echo_flag)
     {
