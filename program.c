@@ -173,13 +173,9 @@ unsigned char *next_ptr(int index) //get next pointer, provide circularity and c
     if(arm_uart_bufs[index].write_ptr == arm_uart_bufs[index].end) //provides circularity
         arm_uart_bufs[index].write_ptr = arm_uart_bufs[index].beg;
     else if (next != arm_uart_bufs[index].read_ptr) //overwrite control
-    {
         arm_uart_bufs[index].write_ptr++;
-    }
     else
-    {
         //Out of Space state
-    }
     return(rtp);
 }
 
