@@ -271,9 +271,9 @@ void task1() //infinity loop
     }
     else
     {
-        usleep(*on_time);
-        *gpio_port1 |= P1P8_ON;
         usleep(*off_time);
+        *gpio_port1 |= P1P8_ON;
+        usleep(*on_time);
         *gpio_port1 |= P1P8_OFF;
     }
 }
